@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caitlynn's Graduation Party Invitiation</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <div class="desktop">
+        <div class="desktopIcon" id="messengerIcon" onclick="document.getElementById('invitePopup').classList.add('visible');">
+            <img src="assets/icons/Messenger.png" class="icon" alt="Messenger Icon"/>
+            <h1 class="outlinedText">Messenger</h1>
+        </div>
+
+        <div class="desktopIcon" id="folderIcon">
+            <img src="assets/icons/hiresclosedfolder.png" class="icon" alt="Folder Icon" />
+            <h1 class="outlinedText">Projects</h1>
+        </div>
+
+        <div class="desktopIcon" id="internetIcon">
+            <img src="assets/icons/blueinternet.png" class="icon" alt="Internet Icon" />
+            <h1 class="outlinedText">Internet</h1>
+        </div>
+    </div>
+
+    <div id="invitePopup" class="popUp">
+        <div class="topBar">
+            <h2>🎓 Graduation Celebration!</h2>
+            <div class="closeicon" id="closePopup">x</div>
+        </div>
+        
+        <div class="bottomContent">
+
+            <div id="profileBox" class="profileBox">
+                
+                <div class="profileBoxTop">
+                    <h2 class="filename">Caitlynn_Graduation_Invitation.exe</h2>
+                    <div class="profileBoxClose" id="closeProfile">x</div>
+                </div>
+
+                <div class="profileBoxContent">
+                    
+                    <div class="profileInfo">
+                        <div class="popUpCrumbs">
+                            <h2 class="filename">File   Edit   View   Tools   Help</h2>
+                        </div>
+                        
+                        <div class="profileDetails">
+                            <div class="profileImageSection">
+                                <img src="assets/images/Caitlynn-photo.jpg" alt="Caitlynn" class="profileImage" />
+                            </div>
+                            <p><strong>Event:</strong> Graduation Party</p>
+                            <p><strong>Date:</strong> December 14th, 2024</p>
+                            <p><strong>Time:</strong> 4:00 PM - 7:00 PM</p>
+                            <p><strong>Location:</strong> 3180 Atlanta Rd SE, Smyrna, GA 30080</p>
+                        
+                            <p class="profileInterests"><strong>Dress Code:</strong> 2000s Going Out </p>
+                            <p class="profileMood"><strong>Mood:</strong> Ready to party</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="successMessage" class="successMessage" style="display: none;">
+                ✓ RSVP submitted successfully!
+            </div>
+
+            <p><strong>You're invited to celebrate Caitlynn's graduation!</strong></p>
+            
+            <div style="background-color: #fff; padding: 12px; margin: 12px 0; border: 2px solid #000;">
+                <p style="margin: 4px 0;"><strong>📅 Date:</strong> Saturday, December 14th, 2024</p>
+                <p style="margin: 4px 0;"><strong>🕓 Time:</strong> 4:00 PM - 7:00 PM</p>
+                <p style="margin: 4px 0;"><strong>📍 Location:</strong> [Add location here]</p>
+            </div>
+
+            <p style="margin-bottom: 16px;">Please let us know if you can attend:</p>
+
+            <div class="formGroup">
+                <label for="guestName">Your Name:</label>
+                <input type="text" id="guestName" placeholder="Enter your name" />
+            </div>
+
+            <div class="formGroup">
+                <label for="guestNumber">Phone Number:</label>
+                <input type="tel" id="guestNumber" placeholder="Enter your phone number" />
+            </div>
+
+            <div class="formGroup">
+                <label for="guestEmail">Email (optional):</label>
+                <input type="email" id="guestEmail" placeholder="Enter your email" />
+            </div>
+
+            <div class="radioGroup">
+                <p style="font-weight: bold; margin-bottom: 8px;">Will you be attending?</p>
+                    
+                <div class="radioOption">
+                    <input type="radio" id="attending" name="rsvpOption" value="yes" checked />
+                    <label for="attending">
+                        <span class="radioLabel">✓ Yes, I'll be there!</span>
+                        <span class="radioDesc">Can't wait to celebrate</span>
+                    </label>
+                </div>
+
+                <div class="radioOption">
+                    <input type="radio" id="notAttending" name="rsvpOption" value="no" />
+                    <label for="notAttending">
+                        <span class="radioLabel">✗ Sorry, I can't make it</span>
+                        <span class="radioDesc">Will celebrate in spirit</span>
+                    </label>
+                </div>
+            </div>
+
+            <button id="submitRsvp" class="button">Submit RSVP</button>
+            <button id="viewResponses" class="button">View Responses</button>
+
+            <div id="responseSection" class="responseSection" style="display: none;">
+                <p style="font-weight: bold; margin-bottom: 8px;">RSVP Summary:</p>
+                <div class="responseCounts">
+                    <div class="countBox">
+                        <div class="countNumber" id="attendingCount">0</div>
+                        <div class="countLabel">Attending</div>
+                    </div>
+                    <div class="countBox">
+                        <div class="countNumber" id="notAttendingCount">0</div>
+                        <div class="countLabel">Can't Attend</div>
+                    </div>
+                </div>
+                <p style="font-size: 12px; font-weight: bold; margin-bottom: 4px;">Recent RSVPs:</p>
+                <div id="responseList" class="responseList"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer" style="display: flex;">
+        <img class="startButton" src="assets/icons/start-button.png" alt="startButton">
+        <div class="taskbar">
+            <p1>3:52 pm</p1>
+        </div>
+    </div>
+
+    <script src="rsvp-final.js"></script>
+
+</body>
+</html>
