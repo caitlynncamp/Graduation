@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graduation RSVP</title>
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <div class="desktop">
+                <!--
+        <header class="navbar">
+            <nav>
+                <ul>
+                <li><a href="#" id="fileLink">File</a></li>
+                <li><a href="#" id="editLink">Edit</a></li>
+                <li><a href="#" id="systemLink">System</a></li>
+                <li><a href="#" id="windowsLink">Window</a></li>
+                <li><a href="#" id="contactLink">Help</a></li>
+                </ul>
+            </nav>
+        </header>
+                -->
+
+        <div class="desktopIcon" id="messengerIcon" onclick="document.getElementById('invitePopup').classList.add('visible');">
+            <img src="assets/icons/Messenger.png" class="icon" alt="Messenger Icon"/>
+            <h1 class="outlinedText">Messenger</h1>
+        </div>
+
+        <div class="desktopIcon" id="folderIcon">
+            <img src="assets/icons/hiresclosedfolder.png" class="icon" alt="Folder Icon" />
+            <h1 class="outlinedText">Projects</h1>
+        </div>
+
+        <div class="desktopIcon" id="internetIcon">
+            <img src="assets/icons/blueinternet.png" class="icon" alt="Internet Icon" />
+            <h1 class="outlinedText">Internet</h1>
+        </div>
+
+
+    </div>
+
+
+
+    <div id="invitePopup" class="popUp">
+        <div class="topBar">
+            <h2>Graduation Celebration!</h2>
+            <div class="closeicon" id="closePopup">x</div>
+        </div>
+        
+        <div class="bottomContent">
+            <div id="successMessage" class="successMessage" style="display: none;">
+                Response submitted successfully!
+            </div>
+
+            <p><strong>You're invited to celebrate Caitlynn's graduation!</strong></p>
+            <p style="margin-bottom: 16px;">Help us determine the date that works the best for the party. See you there!</p>
+
+            <div class="formGroup">
+                <label for="guestName">Your Name:</label>
+                <input type="text" id="guestName" placeholder="Enter your name" />
+            </div>
+
+            <div class="formGroup">
+                <label for="guestNumber">Number:</label>
+                <input type="text" id="guestNumber" placeholder="Enter your phone number" />
+            </div>
+
+            <div class="formGroup">
+                <label for="guestEmail">Email:</label>
+                <input type="text" id="guestEmail" placeholder="Enter your email" />
+            </div>
+
+            <div class="radioGroup">
+                <p style="font-weight: bold; margin-bottom: 8px;">Which date works for you?</p>
+                    
+                <div class="radioOption">
+                    <input type="radio" id="dec18" name="dateOption" value="dec18" checked />
+                        <label for="dec18">
+                            <span class="radioLabel">December 18th</span>
+                            <span class="radioDesc">(Actual Graduation Day)</span>
+                        </label>
+                </div>
+
+                <div class="radioOption">
+                    <input type="radio" id="altDate" name="dateOption" value="altDate" />
+                        <label for="altDate">
+                            <span class="radioLabel">Alternative Date</span>
+                            <span class="radioDesc">December 14th</span>
+                        </label>
+                </div>
+
+            </div>
+
+            <button id="submitRsvp" class="button">Submit RSVP</button>
+            <button id="viewResponses" class="button">View Responses</button>
+
+            <div id="responseSection" class="responseSection" style="display: none;">
+                <p style="font-weight: bold; margin-bottom: 8px;">Response Summary:</p>
+                    <div class="responseCounts">
+                        <div class="countBox">
+                            <div class="countNumber" id="dec18Count">0</div>
+                            <div class="countLabel">Dec 18th</div>
+                        </div>
+                    <div class="countBox">
+                        <div class="countNumber" id="altDateCount">0</div>
+                        <div class="countLabel">Alt Date</div>
+                    </div>
+            </div>
+                <p style="font-size: 12px; font-weight: bold; margin-bottom: 4px;">Recent Responses:</p>
+                    <div id="responseList" class="responseList"></div>
+            </div>
+        </div>
+    </div>
+
+        <div class="footer" style="display: flex;">
+            <img class="startButton" src="assets/icons/start-button.png" alt="startButton">
+            <div class="taskbar">
+                <p1>3:52 pm</p1>
+            </div>
+        </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
