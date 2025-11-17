@@ -22,6 +22,11 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('successMessage').style.display = 'none';
     };
 
+    document.getElementById('closeExtra').onclick = function(event) {
+    event.stopPropagation();
+    document.getElementById('extraBox').style.display = 'none';
+    };
+
     document.getElementById('submitRsvp').onclick = function(event) {
         event.stopPropagation();
         const name = document.getElementById('guestName').value.trim();
@@ -58,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Sending data:', response);
 
         // Send to Google Sheets - UPDATE THIS URL WITH YOUR NEW DEPLOYMENT
-        fetch('https://script.google.com/macros/s/AKfycbzRFvS-OuKGJyZcjlsiAmlrCdLetbWKLVrPUFUS7yjOOggBmssyszRZezqV1r-EucZ8/exec', {
+        fetch('https://script.google.com/macros/s/AKfycbzHrLCOxv0SlV3-Aimi7AKniHpxE9eOhd1ztoqSX-cJXgM2JdZPW_ivtSztMWxH34PL/exec', {
             method: 'POST',
             mode: 'no-cors',
             headers: {
@@ -139,7 +144,4 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
-
 });
-
-
