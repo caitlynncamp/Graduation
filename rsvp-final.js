@@ -97,54 +97,5 @@ document.addEventListener('DOMContentLoaded', function() {
         alert('Error submitting RSVP. Please try again.');
     });
 };
-        
-    // PASSWORD-PROTECTED VIEW RESPONSES
-    document.getElementById('viewResponses').onclick = function(event) {
-        event.stopPropagation();
-        
-        const password = prompt('Enter admin password to view responses:');
-        
-        if (password === ADMIN_PASSWORD) {
-            loadResponses();
-            const responseSection = document.getElementById('responseSection');
-            if (responseSection.style.display === 'none') {
-                responseSection.style.display = 'block';
-            } else {
-                responseSection.style.display = 'none';
-            }
-        } else if (password !== null) {
-            alert('Incorrect password!');
-        }
-    };
-
-    function loadResponses() {
-        const responses = JSON.parse(localStorage.getItem('gradRSVPs') || '[]');
-
-        const attendingCount = responses.filter(r => r.attending === 'yes').length;
-        const notAttendingCount = responses.filter(r => r.attending === 'no').length;
-
-        document.getElementById('attendingCount').textContent = attendingCount;
-        document.getElementById('notAttendingCount').textContent = notAttendingCount;
-
-        const responseList = document.getElementById('responseList');
-        responseList.innerHTML = '';
-
-        if (responses.length === 0) {
-            responseList.innerHTML = '<p style="text-align: center; color: #666;">No RSVPs yet</p>';
-        } else {
-            responses.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
-            const recentResponses = responses.slice(0, 10);
-
-            recentResponses.forEach(response => {
-                const item = document.createElement('div');
-                item.className = 'responseItem';
-                const statusText = response.attending === 'yes' ? '✓ Attending' : '✗ Not Attending';
-                item.innerHTML = `
-                    <span class="responseName">${response.name}</span>
-                    <span class="responseDate">${statusText}</span>
-                `;
-                responseList.appendChild(item);
-            });
-        }
-    }
 });
+
