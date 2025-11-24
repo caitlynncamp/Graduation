@@ -62,39 +62,41 @@ document.addEventListener('DOMContentLoaded', function() {
 
         console.log('Sending data:', response);
 
-        // Send to Google Sheets - UPDATE THIS URL WITH YOUR NEW DEPLOYMENT
-        fetch('https://script.google.com/macros/library/d/1wKjIJs_GZOh0xTn5F6vqL2JL3Zz-sy1hY21JuWaal5Vl8zsQL6uYn5jZ/6', {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(response)
-        })
-        .then(() => {
-            console.log('Fetch completed');
-            // Save locally
-            responses.push(response);
-            localStorage.setItem('gradRSVPs', JSON.stringify(responses));
-            
-            // Show success message
-            document.getElementById('successMessage').style.display = 'block';
-            setTimeout(() => {
-                document.getElementById('successMessage').style.display = 'none';
-            }, 3000);
-
-            // Clear form
-            document.getElementById('guestName').value = '';
-            document.getElementById('guestNumber').value = '';
-            document.getElementById('guestEmail').value = '';
-            document.getElementById('attending').checked = true;
-        })
-        .catch(error => {
-            console.error('Fetch error:', error);
-            alert('Error submitting RSVP. Please try again.');
-        });
-    };
-
+// Send to Google Sheets
+    fetch('https://script.google.com/macros/s/AKfycbxLjFiUk0EIUXdrs_NyuHQ11HHWgiTHOEwQPuljcWJFvntzbcuPvHZdsp6BgiIHoAU/exec', {
+        redirect: "follow",
+        method: 'POST',
+        headers: {
+            'Content-Type': 'text/plain;charset=utf-8',
+        },
+        body: JSON.stringify(response)
+    })
+    .then(response => response.text())
+    .then(result => {
+        console.log('Fetch completed');
+        console.log('Response:', result);
+        
+        // Save locally
+        responses.push(response);
+        localStorage.setItem('gradRSVPs', JSON.stringify(responses));
+        
+        // Show success message
+        document.getElementById('successMessage').style.display = 'block';
+        setTimeout(() => {
+            document.getElementById('successMessage').style.display = 'none';
+        }, 3000);
+    
+        // Clear form
+        document.getElementById('guestName').value = '';
+        document.getElementById('guestNumber').value = '';
+        document.getElementById('guestEmail').value = '';
+        document.getElementById('attending').checked = true;
+    })
+    .catch(error => {
+        console.error('Fetch error:', error);
+        alert('Error submitting RSVP. Please try again.');
+});
+        
     // PASSWORD-PROTECTED VIEW RESPONSES
     document.getElementById('viewResponses').onclick = function(event) {
         event.stopPropagation();
@@ -146,4 +148,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
+
 
