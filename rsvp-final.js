@@ -95,8 +95,8 @@ document.addEventListener('DOMContentLoaded', function() {
     .catch(error => {
         console.error('Fetch error:', error);
         alert('Error submitting RSVP. Please try again.');
-});
-    };
+    });
+};
         
     // PASSWORD-PROTECTED VIEW RESPONSES
     document.getElementById('viewResponses').onclick = function(event) {
@@ -149,6 +149,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
+
 
 
 
