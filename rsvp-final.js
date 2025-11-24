@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Auto-open popup on page load
     document.getElementById('invitePopup').classList.add('visible');
     
-    // Close profile box when clicking X (only if it exists)
+    // Close profile box when clicking X
     const closeProfile = document.getElementById('closeProfile');
     if (closeProfile) {
         closeProfile.onclick = function(event) {
@@ -31,12 +31,27 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
 
+    const closeMedia = document.getElementById('closeMedia');
+    if (closeMedia) {
+        closeMedia.onclick = function(event) {
+            event.stopPropagation();
+            document.getElementById('mediaBox').style.display = 'none';
+        };
+    }
+
     document.getElementById('submitRsvp').onclick = function(event) {
         event.stopPropagation();
         const name = document.getElementById('guestName').value.trim();
         const number = document.getElementById('guestNumber').value.trim();
         const email = document.getElementById('guestEmail').value.trim();
-        const dateChoice = document.querySelector('input[name="dateOption"]:checked').value;
+        
+        // Changed to rsvpOption to match your HTML
+        const selectedOption = document.querySelector('input[name="rsvpOption"]:checked');
+        if (!selectedOption) {
+            alert('Please select an option');
+            return;
+        }
+        const attending = selectedOption.value;
 
         if (!name) {
             alert('Please enter your name');
@@ -60,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: name,
             number: number,
             email: email,
-            attending: dateChoice,
+            attending: attending,
             timestamp: new Date().toISOString()
         };
 
@@ -94,8 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('guestName').value = '';
             document.getElementById('guestNumber').value = '';
             document.getElementById('guestEmail').value = '';
-            document.querySelector('input[name="dateOption"]:checked').checked = false;
-            document.getElementById('dec18').checked = true;
+            document.getElementById('attending').checked = true;
         })
         .catch(error => {
             console.error('Fetch error:', error);
@@ -103,5 +117,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
 });
-
-
