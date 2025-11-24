@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         body: JSON.stringify(response)
     })
-    .then(response => response.text())
+    .then(res => res.text())
     .then(result => {
         console.log('Fetch completed');
         console.log('Response:', result);
@@ -148,5 +148,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
+
 
 
