@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Sending data:', response);
 
         // Send to Google Sheets - UPDATE THIS URL WITH YOUR NEW DEPLOYMENT
-        fetch('https://script.google.com/macros/s/AKfycbxLjFiUk0EIUXdrs_NyuHQ11HHWgiTHOEwQPuljcWJFvntzbcuPvHZdsp6BgiIHoAU/exec', {
+        fetch('https://script.google.com/macros/library/d/1wKjIJs_GZOh0xTn5F6vqL2JL3Zz-sy1hY21JuWaal5Vl8zsQL6uYn5jZ/6', {
             method: 'POST',
             mode: 'no-cors',
             headers: {
@@ -146,3 +146,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
+
