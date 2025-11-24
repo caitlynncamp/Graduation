@@ -39,11 +39,32 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
 
-    document.getElementById('submitRsvp').onclick = function(event) {
-        event.stopPropagation();
-        const name = document.getElementById('guestName').value.trim();
-        const number = document.getElementById('guestNumber').value.trim();
-        const email = document.getElementById('guestEmail').value.trim();
+ document.getElementById('submitRsvp').onclick = function(event) {
+    event.stopPropagation();
+    
+    console.log('Submit button clicked');
+    
+    const name = document.getElementById('guestName').value.trim();
+    const number = document.getElementById('guestNumber').value.trim();
+    const email = document.getElementById('guestEmail').value.trim();
+    
+    console.log('Name:', name);
+    console.log('Number:', number);
+    console.log('Email:', email);
+    
+    // Check what radio buttons exist
+    const allRadios = document.querySelectorAll('input[name="rsvpOption"]');
+    console.log('Found radio buttons:', allRadios.length);
+    
+    const selectedOption = document.querySelector('input[name="rsvpOption"]:checked');
+    console.log('Selected option:', selectedOption);
+    
+    if (!selectedOption) {
+        alert('Please select an option');
+        return;
+    }
+    const attending = selectedOption.value;
+    console.log('Attending value:', attending);
         
         // Changed to rsvpOption to match your HTML
         const selectedOption = document.querySelector('input[name="rsvpOption"]:checked');
@@ -117,3 +138,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
 });
+
